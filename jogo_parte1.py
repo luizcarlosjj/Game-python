@@ -3,6 +3,8 @@ pygame.init() # iniciando a lib pygame
 x = 400
 y = 300
 velocidade = 10
+fundo = pygame.image.load('fundo.png')
+rocket = pygame.image.load('rocket.png')
 
 janela = pygame.display.set_mode((800,600)) # criando e dando tamanho a tela
 pygame.display.set_caption("Criando um jogo com python") # dando nome a tela
@@ -26,10 +28,10 @@ while janela_aberta :
     if comandos[pygame.K_LEFT]:
         x-= velocidade
 
-    janela.fill((0,0,0))
-    pygame.draw.circle(janela, (0,255,0),(x,y),50)
+    janela.blit(fundo, (0,0))
+    janela.blit(rocket, (x,y))
+    # onde , cor , posição, arredondamento
     pygame.display.update()
 
-    # onde , cor , posição, arredondamento
 # Encerrar o jogo
 pygame.quit()
